@@ -37,4 +37,24 @@ function playRound() {
   }
 }
 
+function game(){
+  let playerWins = 0;
+  while (playerWins<5){
+    const winner = playRound();
+
+    if (winner === "player"){
+      playerWins++;
+      console.log(`Woohoo, You won this round! Player: ${playerWins} - Computer: ${5=playerWins} rounds left`);
+    }else if (winner === "computer"){
+      console.log("Computer wins this round");
+      playerWins = 0;
+    }else {
+      console.log("It's a tie.Play again");
+    }
+  }
+
+  console.log("Congratulations, You have defeated me!!! I will have my revenge soon.");
+}
+
 console.log(playRound());
+game();
