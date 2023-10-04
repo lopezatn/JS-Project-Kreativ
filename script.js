@@ -7,10 +7,7 @@ function computerPlay() {
 // let randomString = computerPlay();
 // console.log(randomString);
 
-function playRound() {
-  let playerSelection = prompt("Write rock, paper or scissors");
-  playerSelection = playerSelection.toLowerCase().trim().replace(/\s/g, "");
-  const computerSelection = computerPlay();
+function playRound(playerSelection, computerSelection) {
   let winner;
   //   console.log(`Player input: ${playerSelection}`);
   //   console.log(`Computer input: ${computerSelection}`);
@@ -37,4 +34,8 @@ function playRound() {
   }
 }
 
-console.log(playRound());
+
+let playerSelection = prompt("Write rock, paper or scissors");
+playerSelection = playerSelection.toLowerCase().replace(/\s/g, "");
+let computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
