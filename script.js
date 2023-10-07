@@ -34,7 +34,7 @@ function game() {
 
   for (let i = 1; i <= 5; i++) {
     let playerSelection = prompt(
-      `Enter "rock", "paper" or "scissors", to open console press the key combination "CTRL + Shift + i"`
+      `Enter "rock", "paper" or "scissors", all results provided in console, to open "CTRL + Shift + i"`
     );
     if (playerSelection == null) {
       console.log(
