@@ -67,7 +67,7 @@ function game() {
         i--;
         break;
       default:
-        console.log("Wrong Input");
+        console.log("Wrong Input. You have to choose rock, paper or scissors");
         i--;
     }
 
