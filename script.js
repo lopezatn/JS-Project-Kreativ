@@ -37,10 +37,6 @@ function game() {
     );
     if (playerSelection != null)
       playerSelection = playerSelection.toLowerCase().replace(/\s/g, "");
-    else {
-      console.log("you need cannot escape, start over");
-      game();
-    }
 
     let computerSelection = computerPlay();
     let winner = playRound(playerSelection, computerSelection);
