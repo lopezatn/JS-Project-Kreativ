@@ -1,6 +1,6 @@
 function computerPlay() {
   const rps = ["rock", "paper", "scissors"];
-  var randomIndex = Math.floor(Math.random() * rps.length);
+  let randomIndex = Math.floor(Math.random() * rps.length);
   return rps[randomIndex];
 }
 
