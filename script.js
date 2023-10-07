@@ -37,7 +37,9 @@ function game() {
   let computerWins = 0;
 
   for (let i = 1; i <= 5; i++) {
-    let playerSelection = prompt("Choose rock, paper or scissors");
+    let playerSelection = prompt(
+      `Enter "rock", "paper" or "scissors", to open console press the key combination "CTRL + Shift + I"`
+    );
     playerSelection = playerSelection.toLowerCase().replace(/\s/g, "");
     let computerSelection = computerPlay();
     let winner = playRound(playerSelection, computerSelection);
