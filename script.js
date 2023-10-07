@@ -34,9 +34,10 @@ function game() {
 
   for (let i = 1; i <= 5; i++) {
     let playerSelection = prompt(
-      `Enter "rock", "paper" or "scissors", to open console press the key combination "CTRL + Shift + I"`
+      `Enter "rock", "paper" or "scissors", all results provided in console, to open "CTRL + Shift " i"`
     );
-    playerSelection = playerSelection.toLowerCase().replace(/\s/g, "");
+    if (playerSelection != null)
+      playerSelection = playerSelection.toLowerCase().replace(/\s/g, "");
     let computerSelection = computerPlay();
     let winner = playRound(playerSelection, computerSelection);
 
@@ -61,6 +62,9 @@ function game() {
         );
         console.log("It's a tie. Lets try one more time.");
         i--;
+        break;
+      case null:
+        game();
         break;
       default:
         console.log("Wrong Input");
