@@ -4,11 +4,9 @@ function computerPlay() {
   return rps[randomIndex];
 }
 
-
-
 function playRound(playerSelection, computerSelection) {
   let winner;
- 
+
   switch (playerSelection) {
     case "rock":
       if (computerSelection === "paper") return (winner = "computer");
@@ -46,15 +44,21 @@ function game() {
       case "player":
         playerWins++;
         console.log(`Woohoo, You won this round!`);
-        console.log(`you chose ${playerSelection}, i have ${computerSelection}. ${playerSelection} beats ${computerSelection}`);
+        console.log(
+          `you chose ${playerSelection}, i have ${computerSelection}. ${playerSelection} beats ${computerSelection}`
+        );
         break;
       case "computer":
         computerWins++;
         console.log("Computer wins this round");
-        console.log(`you chose ${playerSelection}, i have ${computerSelection}. ${computerSelection} beats ${playerSelection}`);
+        console.log(
+          `you chose ${playerSelection}, i have ${computerSelection}. ${computerSelection} beats ${playerSelection}`
+        );
         break;
       case "tie":
-        console.log(`you chose ${playerSelection}, i have ${computerSelection}.`);
+        console.log(
+          `you chose ${playerSelection}, i have ${computerSelection}.`
+        );
         console.log("It's a tie. Lets try one more time.");
         i--;
         break;
