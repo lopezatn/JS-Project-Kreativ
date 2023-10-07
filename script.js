@@ -36,6 +36,10 @@ function game() {
     let playerSelection = prompt(
       `Enter "rock", "paper" or "scissors", to open console press the key combination "CTRL + Shift + I"`
     );
+    if(playerSelection == null){
+      console.log(`You cannot escape me. Now you have to start from beginning.`);
+      game();
+    }
     playerSelection = playerSelection.toLowerCase().replace(/\s/g, "");
     let computerSelection = computerPlay();
     let winner = playRound(playerSelection, computerSelection);
