@@ -42,6 +42,12 @@ function game() {
       );
       game();
     }
+    if (playerSelection == null) {
+      console.log(
+        `You cannot escape me. Now you have to start from beginning.`
+      );
+      game();
+    }
     playerSelection = playerSelection.toLowerCase().replace(/\s/g, "");
     let computerSelection = computerPlay();
     let winner = playRound(playerSelection, computerSelection);
@@ -69,7 +75,7 @@ function game() {
         i--;
         break;
       default:
-        console.log("Wrong Input");
+        console.log("Wrong Input. You have to choose rock, paper or scissors");
         i--;
     }
 
