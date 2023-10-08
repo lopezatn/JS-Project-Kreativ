@@ -1,4 +1,4 @@
-window.onload = function () {
+setTimeout(() => {
   function computerPlay() {
     const rps = ["rock", "paper", "scissors"];
     let randomIndex = Math.floor(Math.random() * rps.length);
@@ -37,8 +37,9 @@ window.onload = function () {
     if (playerInput !== null) {
       playerInput = playerInput.toLowerCase().replace(/\s/g, "");
       return playerInput;
-    } else {
-      alert("See you next time, when you're ready to lose :)");
+    }
+    if (playerInput === null) {
+      alert("fuck");
     }
   }
 
@@ -72,8 +73,6 @@ window.onload = function () {
           console.log(`Computer chose: ${computerSelection}`);
           ties++;
           break;
-        case null:
-          return (i = 5);
         default:
           console.log("Wrong Input");
           i--;
@@ -98,4 +97,4 @@ window.onload = function () {
   }
 
   game();
-};
+}, 2000);
