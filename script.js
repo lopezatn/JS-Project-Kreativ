@@ -1,59 +1,63 @@
-setTimeout(() => {
-  function computerPlay() {
-    const rps = ["rock", "paper", "scissors"];
-    let randomIndex = Math.floor(Math.random() * rps.length);
-    return rps[randomIndex];
-  }
+function computerPlay() {
+  const rps = ["rock", "paper", "scissors"];
+  let randomIndex = Math.floor(Math.random() * rps.length);
+  return rps[randomIndex];
+}
 
-  function playRound(playerSelection, computerSelection) {
-    let winner;
-    switch (playerSelection) {
-      case "rock":
-        if (computerSelection === "paper") return (winner = "computer");
-        if (computerSelection === "rock") return (winner = "tie");
-        if (computerSelection === "scissors") return (winner = "player");
-        break;
-      case "paper":
-        if (computerSelection === "scissors") return (winner = "computer");
-        if (computerSelection === "paper") return (winner = "tie");
-        if (computerSelection === "rock") return (winner = "player");
-        break;
-      case "scissors":
-        if (computerSelection === "rock") return (winner = "computer");
-        if (computerSelection === "scissors") return (winner = "tie");
-        if (computerSelection === "paper") return (winner = "player");
-        break;
-      case null:
-        return "cancelled";
-      default:
-        break;
-    }
+function playRound(playerSelection, computerSelection) {
+  let winner;
+  switch (playerSelection) {
+    case "rock":
+      if (computerSelection === "paper") return (winner = "computer");
+      if (computerSelection === "rock") return (winner = "tie");
+      if (computerSelection === "scissors") return (winner = "player");
+      break;
+    case "paper":
+      if (computerSelection === "scissors") return (winner = "computer");
+      if (computerSelection === "paper") return (winner = "tie");
+      if (computerSelection === "rock") return (winner = "player");
+      break;
+    case "scissors":
+      if (computerSelection === "rock") return (winner = "computer");
+      if (computerSelection === "scissors") return (winner = "tie");
+      if (computerSelection === "paper") return (winner = "player");
+      break;
+    case null:
+      return (winner = "cancelled");
+    default:
+      break;
   }
+}
 
-  function playerPlay() {
-    let playerInput = prompt(
-      `Write rock, paper or scissors, all results provided in console, to open "CTRL + Shift + i"`
-    );
-    if (playerInput !== null) {
-      playerInput = playerInput.toLowerCase().replace(/\s/g, "");
+function playerPlay() {
+  let playerInput = prompt(
+    `Write rock, paper or scissors, all results provided in console, to open "CTRL + Shift + i"`
+  );
+  if (playerInput === null) {
+  } else {
+    playerInput = playerInput.toLowerCase().replace(/\s/g, "");
+    if (
+      playerInput === "rock" ||
+      playerInput === "paper" ||
+      playerInput === "scissors"
+    ) {
       return playerInput;
-    }
-    if (playerInput === null) {
-      alert("fuck");
+    } else {
+      return (playerInput = "wrong input");
     }
   }
+}
 
-  function game() {
-    let playerWins = 0;
-    let computerWins = 0;
-    let ties = 0;
+function game() {
+  let playerWins = 0;
+  let computerWins = 0;
+  let ties = 0;
 
-    for (let i = 1; i <= 5; i++) {
-      let playerSelection = playerPlay();
-
-      let computerSelection = computerPlay();
+  for (let i = 1; i <= 5; i++) {
+    let playerSelection = playerPlay();
+    let computerSelection = computerPlay();
+    if (playerSelection !== undefined) {
       let winner = playRound(playerSelection, computerSelection);
-
       switch (winner) {
         case "player":
           playerWins++;
@@ -74,27 +78,39 @@ setTimeout(() => {
           ties++;
           break;
         default:
-          console.log("Wrong Input");
+          console.log("Wrong input");
           i--;
+          break;
       }
+    }
+    if (playerSelection === undefined) {
+      i = 6;
+      computerWins = "lol";
+      alert(
+        `Too scared to lose? If you want to play again type "game()" in console`
+      );
+    }
 
+    if (i === 6) {
+    } else {
       console.log(
         `Score --------------------- Player: ${playerWins} ---- Computer: ${computerWins}`
       );
       i > 0 && console.log(`${5 - i} rounds left`);
     }
-    if (computerWins < playerWins) {
-      console.log(
-        "Congratulations, You have defeated me!!! I will have my revenge soon."
-      );
-    } else if (computerWins === playerWins) {
-      console.log("Well it's a tie, atleast you didn't lose");
-    } else {
-      console.log(
-        "Huhuhahahahha, You can not defeat me. !!! Better Luck next time."
-      );
-    }
   }
+  if (computerWins < playerWins) {
+    console.log(
+      "Congratulations, You have defeated me!!! I will have my revenge soon."
+    );
+  } else if (computerWins === playerWins) {
+    console.log("Well it's a tie, atleast you didn't lose");
+  } else if (computerWins === "lol") {
+  } else {
+    console.log(
+      "Huhuhahahahha, You can not defeat me. !!! Better Luck next time."
+    );
+  }
+}
 
-  game();
-}, 2000);
+game();
