@@ -22,19 +22,26 @@ function playRound(playerSelection, computerSelection) {
       if (computerSelection === "scissors") return (winner = "tie");
       if (computerSelection === "paper") return (winner = "player");
       break;
+    case null:
+      return "cancelled"
     default:
       break;
   }
 }
 
+function playerPlay() {
+  return prompt(
+    `Write rock, paper or scissors, all results provided in console, to open "CTRL + Shift + i`
+  );
+}
+
 function game() {
   let playerWins = 0;
   let computerWins = 0;
+  let escape = false;
 
-  for (let i = 1; i <= 5; i++) {
-    let playerSelection = prompt(
-      `Write rock, paper or scissors, all results provided in console, to open "CTRL + Shift + i`
-    );
+  for (let i = 1; i <= 5 && escape === false; i++) {
+    let playerSelection = playerPlay()
     if (playerSelection != null)
       playerSelection = playerSelection.toLowerCase().replace(/\s/g, "");
 
@@ -54,6 +61,9 @@ function game() {
         console.log("It's a tie. Lets try one more time.");
         i--;
         break;
+      case "cancelled":
+        console.log("Exiting game..");
+        escape = true;
       default:
         console.log("Wrong Input");
         i--;
@@ -75,4 +85,4 @@ function game() {
   }
 }
 
-game();
+// game();
