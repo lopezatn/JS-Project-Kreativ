@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 1; i <= 5; i++) {
       let playerSelection = playerPlay();
       let computerSelection = computerPlay();
-      if(playerSelection === 'exit') return console.log('Game Exited');
+      if(playerSelection === "exit") return console.log("Game Exited");
       let winner = playRound(playerSelection, computerSelection);
 
       switch (winner) {
