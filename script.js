@@ -1,8 +1,20 @@
-setTimeout(() => {
+document.addEventListener("DOMContentLoaded", function () {
+
   function computerPlay() {
     const rps = ["rock", "paper", "scissors"];
     let randomIndex = Math.floor(Math.random() * rps.length);
     return rps[randomIndex];
+  }
+
+  function playerPlay() {
+    let playerInput = prompt(
+      `Write rock, paper or scissors, all results provided in console`
+    );
+    if (playerInput !== null) {
+      playerInput = playerInput.toLowerCase().replace(/\s/g, "");
+      return playerInput;
+    } 
+    return "exit";
   }
 
   function playRound(playerSelection, computerSelection) {
@@ -30,19 +42,6 @@ setTimeout(() => {
     }
   }
 
-  function playerPlay() {
-    let playerInput = prompt(
-      `Write rock, paper or scissors, all results provided in console, to open "CTRL + Shift + i"`
-    );
-    if (playerInput !== null) {
-      playerInput = playerInput.toLowerCase().replace(/\s/g, "");
-      return playerInput;
-    }
-    if (playerInput === null) {
-      alert("fuck");
-    }
-  }
-
   function game() {
     let playerWins = 0;
     let computerWins = 0;
@@ -50,8 +49,8 @@ setTimeout(() => {
 
     for (let i = 1; i <= 5; i++) {
       let playerSelection = playerPlay();
-
       let computerSelection = computerPlay();
+      if(playerSelection === 'exit') return console.log('Game Exited');
       let winner = playRound(playerSelection, computerSelection);
 
       switch (winner) {
@@ -88,7 +87,7 @@ setTimeout(() => {
         "Congratulations, You have defeated me!!! I will have my revenge soon."
       );
     } else if (computerWins === playerWins) {
-      console.log("Well it's a tie, atleast you didn't lose");
+      console.log("Well it's a tie, at least you didn't lose");
     } else {
       console.log(
         "Huhuhahahahha, You can not defeat me. !!! Better Luck next time."
@@ -97,4 +96,4 @@ setTimeout(() => {
   }
 
   game();
-}, 2000);
+});
